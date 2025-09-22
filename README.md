@@ -1,2 +1,477 @@
 # aion-hall-academy
 "Publicidad de cursos de idiomas - AION HALL ACADEMY"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos de Idiomas - Aprende con los Mejores</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .slogan {
+            font-size: 1.8rem !important;
+            font-weight: bold !important;
+            color: #FFD700 !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
+            margin-bottom: 25px !important;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .language-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .language-card:nth-child(2) {
+            background: linear-gradient(135deg, #4ecdc4, #44a08d);
+        }
+
+        .language-card:nth-child(3) {
+            background: linear-gradient(135deg, #45b7d1, #3498db);
+        }
+
+        .language-card:nth-child(4) {
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+        }
+
+        .language-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .language-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .flag {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .features {
+            margin-bottom: 40px;
+        }
+
+        .features h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .features h2:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .feature-item h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .pricing {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        .pricing h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .price-details {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .modality-options {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .modality {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .modality:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #2c3e50;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(255,215,0,0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,215,0,0.4);
+            animation: none;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-card {
+                padding: 25px;
+            }
+            
+            .price {
+                font-size: 3rem;
+            }
+            
+            .modality-options {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 AION HALL ACADEMY 🌍</h1>
+            <p class="slogan">"Learn Forever"</p>
+            <p>Domina un nuevo idioma con nuestra metodología efectiva</p>
+        </div>
+
+        <div class="main-card">
+            <div class="languages">
+                <div class="language-card">
+                    <span class="flag">🇺🇸</span>
+                    <h3>INGLÉS</h3>
+                    <p>El idioma universal de los negocios</p>
+                </div>
+                <div class="language-card">
+                    <span class="flag">🇩🇪</span>
+                    <h3>ALEMÁN</h3>
+                    <p>Puerta de entrada a Europa</p>
+                </div>
+                <div class="language-card">
+                    <span class="flag">🇫🇷</span>
+                    <h3>FRANCÉS</h3>
+                    <p>La lengua de la cultura y elegancia</p>
+                </div>
+                <div class="language-card">
+                    <span class="flag">🇮🇹</span>
+                    <h3>ITALIANO</h3>
+                    <p>El idioma del arte y la gastronomía</p>
+                </div>
+            </div>
+
+            <div class="features">
+                <h2>¿Qué Incluye Tu Curso?</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3><span class="feature-icon">📚</span>Material Completo</h3>
+                        <p>Todo el material necesario incluido: libros digitales, ejercicios interactivos, audios y videos de apoyo.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><span class="feature-icon">🎯</span>Metodología Efectiva</h3>
+                        <p>Sistema de aprendizaje comprobado que combina teoría y práctica para resultados óptimos.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><span class="feature-icon">📊</span>Seguimiento de Progreso</h3>
+                        <p>Indicadores de curva de aprendizaje para monitorear tu avance y identificar áreas de mejora.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><span class="feature-icon">💻</span>Plataformas Digitales</h3>
+                        <p>Acceso a plataformas digitales modernas para practicar desde cualquier lugar.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><span class="feature-icon">⏰</span>Horarios Flexibles</h3>
+                        <p>Adapta las clases a tu rutina con horarios completamente flexibles.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3><span class="feature-icon">🎓</span>Y Mucho Más...</h3>
+                        <p>Certificaciones, práctica conversacional, soporte personalizado y comunidad de estudiantes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing">
+                <h2>Inversión en Tu Futuro</h2>
+                <div class="price">$800</div>
+                <div class="price-details">
+                    Mensuales por curso<br>
+                    2 horas por semana • Horarios flexibles
+                </div>
+                
+                <div class="modality-options">
+                    <div class="modality">
+                        <strong>💻 PRESENCIAL</strong><br>
+                        Interacción directa
+                    </div>
+                    <div class="modality">
+                        <strong>🌐 ONLINE</strong><br>
+                        Desde tu hogar
+                    </div>
+                </div>
+
+                <button class="cta-button">¡INSCRÍBETE AHORA!</button>
+            </div>
+
+            <div class="contact-info">
+                <h3>🚀 ¡Transforma tu futuro hoy mismo!</h3>
+                <p style="font-size: 1.1rem; color: #2c3e50; margin-top: 15px; margin-bottom: 20px;">
+                    No esperes más para dominar el idioma que abrirá nuevas oportunidades en tu vida profesional y personal.
+                </p>
+                <div style="background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <h4 style="font-size: 1.5rem; margin-bottom: 15px; color: #FFD700;">📞 Contáctanos</h4>
+                    <p style="font-size: 1.3rem; font-weight: bold;">2481666815</p>
+                    <p style="font-size: 1rem; opacity: 0.9; margin-top: 10px;">¡Llamanos ahora para más información!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de aparecer elementos al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        document.querySelectorAll('.feature-item, .language-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Efecto hover mejorado para las tarjetas de idiomas
+        document.querySelectorAll('.language-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.05) rotateY(5deg)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1) rotateY(0deg)';
+            });
+        });
+
+        // Efecto click en el botón CTA
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            alert('¡Excelente decisión! Contáctanos para más información sobre inscripciones.');
+        });
+    </script>
+</body>
+</html>
